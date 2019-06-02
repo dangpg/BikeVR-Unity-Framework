@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BLEManagerScript : MonoBehaviour
+public class BLEManagerScript : MonoBehaviour, IBLEManager
 {
     public float ScanDuration = 10;
     public string DeviceAddress = "B8:27:EB:5B:82:A3";

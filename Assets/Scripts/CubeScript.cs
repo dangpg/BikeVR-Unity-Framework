@@ -3,13 +3,13 @@
 public class CubeScript : MonoBehaviour
 {
     private Renderer _cubeRenderer;
-    private BLEManagerScript _bleManager;
+    private IBLEManager _bleManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _cubeRenderer = GetComponent<Renderer>();
-        _bleManager = GameObject.Find("BLEManager").GetComponent<BLEManagerScript>();
+        _bleManager = GameObject.Find("BLEManager").GetComponent<IBLEManager>();
     }
 
     // Update is called once per frame
