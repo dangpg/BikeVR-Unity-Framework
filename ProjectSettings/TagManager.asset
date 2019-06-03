@@ -7,6 +7,7 @@ TagManager:
   - BLEManager
   - LoadingIcon
   - FinishedIcon
+  - Speedometer
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class CubeScript : MonoBehaviour
     void Start()
     {
         _cubeRenderer = GetComponent<Renderer>();
-        _bleManager = GameObject.Find("BLEManager").GetComponent<IBLEManager>();
+        _bleManager = GameObject.FindGameObjectWithTag("BLEManager").GetComponent<IBLEManager>();
     }
 
     // Update is called once per frame

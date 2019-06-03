@@ -17,13 +17,20 @@ public class BLEManagerMock : MonoBehaviour, IBLEManager
             new Characteristic[] { _irCharacteristic }
             );
 
-        InvokeRepeating("UpdateCharacteristics", 0f, 1f);
+        //InvokeRepeating("UpdateCharacteristics", 0f, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.I))
+        {
+            _irCharacteristic.UpdateValue(BitConverter.GetBytes(1));
+        }
+        else
+        {
+            _irCharacteristic.UpdateValue(BitConverter.GetBytes(0));
+        }
     }
 
     private void UpdateCharacteristics()

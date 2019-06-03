@@ -1,6 +1,6 @@
 ﻿public abstract class BaseCharacteristic<T> : Characteristic
 {
-    public T Value { get; set; }
+    public T Value { get; protected set; }
     
     public BaseCharacteristic(string UUID, T initialValue)
     {
