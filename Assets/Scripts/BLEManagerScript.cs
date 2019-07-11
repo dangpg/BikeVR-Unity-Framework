@@ -48,7 +48,7 @@ public class BLEManagerScript : MonoBehaviour, IBLEManager
         _state = States.Disconnected;
         _timeout = 0f;
         _characteristics = new List<Characteristic>(
-            new Characteristic[] { new IRCharacteristic(), new CounterCharacteristic() }
+            new Characteristic[] { new IRCharacteristic() }
             );
         
         BluetoothLEHardwareInterface.Initialize(true, false, () =>

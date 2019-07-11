@@ -7,11 +7,14 @@ public class BLEManagerMock : MonoBehaviour, IBLEManager
 {
     private List<Characteristic> _characteristics;
     private IRCharacteristic _irCharacteristic;
+    private int _value;
 
     // Start is called before the first frame update
     void Start()
     {
         _irCharacteristic = new IRCharacteristic();
+
+        _value = 0;
 
         _characteristics = new List<Characteristic>(
             new Characteristic[] { _irCharacteristic }
@@ -23,27 +26,24 @@ public class BLEManagerMock : MonoBehaviour, IBLEManager
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            _irCharacteristic.UpdateValue(BitConverter.GetBytes(1));
-        }
-        else
-        {
-            _irCharacteristic.UpdateValue(BitConverter.GetBytes(0));
+            _value++;
+            _irCharacteristic.UpdateValue(BitConverter.GetBytes(_value));
         }
     }
 
-    private void UpdateCharacteristics()
-    {
-        if (_irCharacteristic.Value)
-        {
-            _irCharacteristic.UpdateValue(BitConverter.GetBytes(0));
-        }
-        else
-        {
-            _irCharacteristic.UpdateValue(BitConverter.GetBytes(1));
-        }
-    }
+    //private void UpdateCharacteristics()
+    //{
+    //    if (_irCharacteristic.Value)
+    //    {
+    //        _irCharacteristic.UpdateValue(BitConverter.GetBytes(0));
+    //    }
+    //    else
+    //    {
+    //        _irCharacteristic.UpdateValue(BitConverter.GetBytes(1));
+    //    }
+    //}
 
     public T GetCharacteristic<T>() where T : Characteristic
     {

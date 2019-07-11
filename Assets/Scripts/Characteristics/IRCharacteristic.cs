@@ -1,8 +1,8 @@
 ﻿using System;
 
-public class IRCharacteristic : BaseCharacteristic<bool>
+public class IRCharacteristic : BaseCharacteristic<int>
 {
-    public IRCharacteristic() : base("11111111-1111-4b23-9358-f235b978d07c", false)
+    public IRCharacteristic() : base("11111111-1111-4b23-9358-f235b978d07c", 0)
     {
     }
 
@@ -10,7 +10,7 @@ public class IRCharacteristic : BaseCharacteristic<bool>
     {
         if (bytes != null)
         {
-            this.Value = BitConverter.ToInt16(bytes, 0) == 0 ? false : true;
+            this.Value = BitConverter.ToInt16(bytes, 0);
         }
     }
 }
